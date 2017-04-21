@@ -1,6 +1,6 @@
   <style type="text/css">
   body{
-   background-image:url("images/index.jpg");
+   background-image:url("images/login.jpg");
    background-repeat: no-repeat;
    background-size: cover;
   }
@@ -10,7 +10,7 @@
       height:70px;
       background-color:rgba(0,0,0,0.4);
       margin:0 auto;
-      margin-top: 150px;
+      margin-top: 250px;
       padding-top:10px;
       padding-left: 65px;
       border-radius: 10px;
@@ -30,7 +30,8 @@
       border-radius: 10px;
     
     }
-    </style>
+    
+     </style>
   </head>
   
   <body>
@@ -59,10 +60,14 @@
 
 
 
-<a href="http://bridgelabz.com/">About us</a>
+
+
+<a href="http://bridgelabz.com/"><font color="red">About us</font></a>
 
 
 </pre>
 </center>
+
+
 </body>
 </html>
