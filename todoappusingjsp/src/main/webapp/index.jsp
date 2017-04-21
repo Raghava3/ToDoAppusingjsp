@@ -1,6 +1,6 @@
    <style type="text/css">
   body{
-   background-image:url("images/login.jpg");
+   background-image:url("images/book.jpg");
    background-repeat: no-repeat;
    background-size: cover;
   }
