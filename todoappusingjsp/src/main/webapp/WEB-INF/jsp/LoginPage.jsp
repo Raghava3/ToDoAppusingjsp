@@ -15,9 +15,15 @@
   <link rel="icon" type="image/png" href="images/favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+$(function()
+		{
+		$("#error_message").hide();
+
+</script>
 <title>Login</title>
     <style type="text/css">
-  body{
+  body{	
    background-image:url("images/login.jpg");
    background-repeat: no-repeat;
    background-size: cover;
@@ -61,10 +67,11 @@
 <form action="loginvalidation" method="post">
 <font color="red">${msg}</font>
 <b>email</b>:     <input type="text" name="email"   placeholder="email"></br>
+                  <font color="red">  <i><span class="error_form" id="error_message"></span></i></font>
 <b>password</b>:  <input type="password" name="password" placeholder="password"></br>
                 <input type="submit" value="click to login">
 </form>
-$
+
 </div>
 <center>
 <pre>

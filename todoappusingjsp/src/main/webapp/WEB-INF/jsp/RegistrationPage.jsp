@@ -6,14 +6,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="stylesheets/style.css"/>
-  <script type="text/javascript" language="javascript" src="jsp/script.js"></script>
-  <script type="text/javascript" language="javascript" src="javascripts/jquery.js"></script>
     
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link rel="icon" type="image/png" href="images/favicon.ico">
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
+  
 <script type="text/javascript">
 
 $(function()
@@ -56,7 +52,7 @@ $(function()
     	   var username_length=$("#form_Name").val().length;
     	   if(username_length<5||username_length>20)
     		   {
-    		   $("#Name_error_message").html("atleast 4 character	");
+    		   $("#Name_error_message").html("atleast 5 character	");
     		   $("#Name_error_message").show();
     		   error_name=true;
     		   }
@@ -183,7 +179,7 @@ $(function()
  <td><span class="error_form" id="email_error_message"></span></td>
  </tr>
  <tr>
- <td>password:</td>
+ <td>password:</td>/i>
  <td>   <input type="password" class="form_text" id="form_password"  name="password" placeholder="password"></td>
  <td><span class="error_form" id="password_error_message"></span>
  </td>

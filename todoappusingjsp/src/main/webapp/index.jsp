@@ -46,7 +46,7 @@
 </form>
 
 <form action="Loginpage" method="post">
-<input type="submit" value=" click here to login  " >
+<input type="submit" value=" click here to login " >
 </form>
 </div>
 
