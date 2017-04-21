@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel="apple-touch-icon" href="images/todoapps.png">
+<link rel="shortcut icon" href="images/todoapps.png">
+</head>
+<body>
+<pre>
+<center>
+<form action="loginvalidation" method="post">
+email:     <input type="text" name="email"   placeholder="enter the email">
+password:  <input type="password" name="password" placeholder="enter the password">
+           <input type="submit" value="click to login">
+</form>
+
+<font color="red">${msg}</font>
+
+</center>
+</pre>
+</body>
+</html>
