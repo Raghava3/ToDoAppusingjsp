@@ -1,4 +1,4 @@
-  <style type="text/css">
+   <style type="text/css">
   body{
    background-image:url("images/login.jpg");
    background-repeat: no-repeat;
@@ -13,7 +13,7 @@
       margin-top: 250px;
       padding-top:10px;
       padding-left: 65px;
-      border-radius: 10px;
+      border-radius: 30px;
 
     }
     
@@ -70,4 +70,13 @@
 
 
 </body>
-</html>
+</html> 
+
+
+
+
+
+
+
+
+

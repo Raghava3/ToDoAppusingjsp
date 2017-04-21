@@ -56,7 +56,7 @@ $(function()
     	   var username_length=$("#form_Name").val().length;
     	   if(username_length<5||username_length>20)
     		   {
-    		   $("#Name_error_message").html("should be between 5-20 char	");
+    		   $("#Name_error_message").html("atleast 4 character	");
     		   $("#Name_error_message").show();
     		   error_name=true;
     		   }
@@ -65,25 +65,56 @@ $(function()
     		   $("#Name_error_message").hide();
     		   }
        }
+        
        
        function check_mobilenumber()
        {
-    	   var mobile_length=$("#form_MobileNumber").val().length;
-    	   if(mobile_length<10)
-    		   {
-    		   $("#MobileNumber_error_message").html("not a valid number,it should be 10");
-    		   $("#MobileNumber_error_message").show();
-    		   error_name=true;
-    		   }
-    	   else
+    	   var Mobile_pattern=new RegExp(/^[0-9]{10}/);
+    	   if(Mobile_pattern.test($("#form_MobileNumber").val()))
     		   {
     		   $("#MobileNumber_error_message").hide();
     		   }
-       }
-		}
-		
-		
-		);
+    	   else
+    		   {
+    		   $("#MobileNumber_error_message").html("it should be 10 numbers");
+    		   $("#MobileNumber_error_message").show();
+    		   error_name=true;
+    		  }
+       } 
+       
+       
+       function check_email()
+       {
+    	   var email_pattern=new RegExp(/^[+a-zA-Z0-9._-]+@[+a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/i);
+    	   if(email_pattern.test($("#form_email").val()))
+    		   {
+    		   $("#email_error_message").hide();
+    		   }
+    	   else
+    		   {
+    		   $("#email_error_message").html("invalid.");
+    		   $("#email_error_message").show();
+    		   error_name=true;
+    		  }
+       } 
+       
+       function check_password()
+       {
+    	   var password_pattern=new RegExp(/^[a-zA-Z0-9]{7}/);
+    	   if(password_pattern.test($("#form_password").val()))
+    		   {
+    		   $("#password_error_message").hide();
+    		   }
+    	   else
+    		   {
+    		   $("#password_error_message").html("atleast 7 character");
+    		   $("#password_error_message").show();
+    		   error_name=true;
+    		  }
+       } 
+       
+  }
+);
 
 
 
@@ -103,7 +134,7 @@ $(function()
       margin-top: 200px;
       padding-top: 25px;
       padding-left: 10px;
-      border-radius: 15px;
+      border-radius: 35px;
 
     }
     .bb
@@ -163,19 +194,32 @@ $(function()
  </form>
 </table> -->
 <pre>
-       <marquee WIDTH="70%"> please enter the details,it will be safe with us.</marquee>
+       <marquee WIDTH="70%"> please enter the details,to signup.</marquee>
 <form id="registration" action="register" method="post">
- Name:         <input  type="text" class="form_text" id="form_Name"  name="fullName" placeholder="name">
- <font color="red"><span class="error_form" id="Name_error_message"></span></font>
- ContactNumber:<input  type="text"   class="form_text" id="form_MobileNumber"  name="mobileNumber" placeholder="contact no">
- <font color="red"><span class="error_form" id="MobileNumber_error_message"></span></font>
- email:        <input type="text"  class="form_text" id="form_email"  name="email" placeholder="email">
- <font color="red"><span class="error_form" id="email_error_message"></span></font>
- password:     <input type="password" class="form_text" id="form_password"  name="password" placeholder="password">
- <font color="red"><span class="error_form" id="password_error_message"></span></font>
+ <b>Name:</b>         <input  type="text"  id="form_Name"  name="fullName" placeholder="name">
+ <font color="red">  <i><span class="error_form" id="Name_error_message"></span></i></font>
+<b> ContactNumber:</b><input  type="text"   id="form_MobileNumber"  name="mobileNumber" placeholder="contact no">
+ <font color="red">  <i><span class="error_form" id="MobileNumber_error_message"></span></i></font>
+ <b>email: </b>       <input type="text"   id="form_email"  name="email" placeholder="email">
+ <font color="red">  <i><span class="error_form" id="email_error_message"></span></i></font>
+ <b>password:</b>     <input type="password"  id="form_password"  name="password" placeholder="password">
+ <font color="red">  <i><span class="error_form" id="password_error_message"></span></i></font>
                    <input type="submit" value="click to signup"> 
  </form>
 </pre>
 </div>
+<center>
+<pre>
+
+
+
+
+
+
+<a href="http://bridgelabz.com/"><font color="red">About us</font></a>
+
+
+</pre>
+</center>
 </body>
 </html>

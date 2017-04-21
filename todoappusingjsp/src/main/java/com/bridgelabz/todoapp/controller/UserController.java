@@ -87,7 +87,7 @@ public class UserController
 			   
 			}
 			else {
-				String msg = " The email and password is not matching. please enter  again";
+				String msg = "email and password is not matching";
 				return new ModelAndView("LoginPage", "msg", msg);
 
 			}

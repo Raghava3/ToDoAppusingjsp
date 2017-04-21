@@ -1,4 +1,4 @@
-$(function()
+/*$(function()
 		{
 		$("#Name_error_message").hide();
         $("#MobileNumber_error_message").hide();
@@ -48,4 +48,20 @@ $(function()
     		   }
        }
        
-		});
+       function check_mobilenumber()
+       {
+    	   var Mobile_pattern=new RegExp(/^[0-9]{10}/);
+    	   
+    	   if(!Mobile_pattern.test($("form_MobileNumber").val()))
+    		   {
+    		   $("#MobileNumber_error_message").hide();
+    		   }
+    	   else
+    		   {
+    		   $("#MobileNumber_error_message").html("should 5-20 char	");
+    		   $("#MobileNumber_error_message").show();
+    		   error_name=true;
+    		  }
+       } 
+       
+		});*/
