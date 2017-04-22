@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
     
 
 <!DOCTYPE html>
@@ -12,8 +13,7 @@
   
 <script type="text/javascript">
 
-$(function()
-		{
+$(function() {
 		$("#Name_error_message").hide();
         $("#MobileNumber_error_message").hide();
         $("#email_error_message").hide();
@@ -23,29 +23,30 @@ $(function()
         var error_mobilenumber=false;
         var error_email=false;
         var error_password=false;
+        
+       
+        
+        
 		
-        $("#form_Name").focusout(function(){
-        	
-        	check_username();
-        		
-        });
-       $("#form_MobileNumber").focusout(function(){
-        	
-        	check_mobilenumber();
-        		
-        });
-       $("#form_email").focusout(function(){
-       	
-       	check_email();
+       $("#form_Name").focusout(function(){
+       	check_username();
        		
        });
-       
-       $("#form_password").focusout(function(){
-       	
-       	check_password();
+      $("#form_MobileNumber").focusout(function(){
+       	check_mobilenumber();
        		
        });
+      $("#form_email").focusout(function(){
+      		check_email();
+      		
+      });
+      
+      $("#form_password").focusout(function(){
+      		check_password();
+      		
+      });
        
+      
        
        function check_username()
        {
@@ -65,7 +66,7 @@ $(function()
        
        function check_mobilenumber()
        {
-    	   var Mobile_pattern=new RegExp(/^[0-9]{10}/);
+    	   var Mobile_pattern=new RegExp(/^([0-9]{10})$/);
     	   if(Mobile_pattern.test($("#form_MobileNumber").val()))
     		   {
     		   $("#MobileNumber_error_message").hide();
@@ -109,28 +110,27 @@ $(function()
     		  }
        } 
        
-  }
-);
+});
 
 
 
 </script>
     <style type="text/css">
   body{
-   background-image:url("images/login.jpg");
+   background-image:url("images/simple.png");
    background-repeat: no-repeat;
    background-size: cover;
   }
     .aa
     {
       width: 400px;
-      height:220px;
-      background-color:rgba(0,0,0,0.2);
+      height:230px;
+      background-color:white;
       margin:0 auto;
-      margin-top: 200px;
+      margin-top: 160px;
       padding-top: 25px;
       padding-left: 10px;
-      border-radius: 35px;
+      border-radius: 5px;
 
     }
     .bb
@@ -190,21 +190,19 @@ $(function()
  </form>
 </table> -->
 <pre>
-       <marquee WIDTH="70%"> please enter the details,to signup.</marquee>
-<form id="registration" action="register" method="post">
- <b>Name:</b>         <input  type="text"  id="form_Name"  name="fullName" placeholder="name">
+ <form id="register" action="register" method="post">
+ <b>Name:</b>         <input  type="text"  id="form_Name" class="form_class"  name="fullName" placeholder="name">
  <font color="red">  <i><span class="error_form" id="Name_error_message"></span></i></font>
-<b> ContactNumber:</b><input  type="text"   id="form_MobileNumber"  name="mobileNumber" placeholder="contact no">
+<b> ContactNumber:</b><input  type="text"   id="form_MobileNumber" class="form_class" name="mobileNumber" placeholder="contact no">
  <font color="red">  <i><span class="error_form" id="MobileNumber_error_message"></span></i></font>
  <b>email: </b>       <input type="text"   id="form_email"  name="email" placeholder="email">
  <font color="red">  <i><span class="error_form" id="email_error_message"></span></i></font>
  <b>password:</b>     <input type="password"  id="form_password"  name="password" placeholder="password">
  <font color="red">  <i><span class="error_form" id="password_error_message"></span></i></font>
-                   <input type="submit" value="click to signup"> 
+                    <input type="submit" value="click to signup"> 
  </form>
 </pre>
 </div>
-<center>
 <pre>
 
 
@@ -212,10 +210,11 @@ $(function()
 
 
 
-<a href="http://bridgelabz.com/"><font color="red">About us</font></a>
 
-
+<div class="bb"><center><a href="http://bridgelabz.com/"><font color="red">About us</font></center></a></div>
 </pre>
-</center>
+
+
+</body>
 </body>
 </html>

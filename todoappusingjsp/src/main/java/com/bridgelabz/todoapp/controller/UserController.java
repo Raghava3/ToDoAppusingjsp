@@ -25,18 +25,12 @@ public class UserController
 	@Autowired
 	UserSerInter userSerInter;
 	
-	@RequestMapping(value="registrationpage",method=RequestMethod.POST)
+	@RequestMapping(value="signup")
 	public ModelAndView displayRegispge()
 	{
 		return new ModelAndView("RegistrationPage");
 	}
 	
-	
-	@RequestMapping(value="Loginpage",method=RequestMethod.POST)
-	public ModelAndView displayLoginpge()
-	{
-		return new ModelAndView("LoginPage");
-	}
 	
 	
 	@RequestMapping(value="register",method=RequestMethod.POST)
@@ -45,14 +39,14 @@ public class UserController
 		                            //doing sessin invalidate otherwise it will add . ask sir 
 		regValidation.validate(user, bindingResult);       //calling validate method 
 		if(bindingResult.hasErrors()){
-			String msg="errors in requried field";
-			return new ModelAndView("RegistrationPage","msg",msg);
+			
+			return new ModelAndView("RegistrationPage");
 		}
 		else{
 		 boolean  result=userSerInter.registration(user); //calling registration method
 		
 		 if(result){
-			 return new ModelAndView("LoginPage");
+			 return new ModelAndView("redirect:/login");
 		 }
 		 else {
 			 String msg="failed..! please fill again";
@@ -62,14 +56,15 @@ public class UserController
 	}
 	
 	
-	@RequestMapping(value="loginvalidation", method=RequestMethod.POST)
+	@RequestMapping(value="/Home", method=RequestMethod.POST)
 	public ModelAndView loginvalidation(@RequestParam("email") String email,
 			@RequestParam("password") String password, HttpServletRequest req, HttpServletResponse resp) 
 	{
 		
 	HttpSession session=req.getSession();
 				
-		
+		System.out.println(email);
+		System.out.println(password);
 		try {
 
 			Object l = userSerInter.login(email, password);
@@ -81,21 +76,38 @@ public class UserController
 			if (l != null) {
 				
 				session.setAttribute("Email", email);
-				ModelAndView mo=new ModelAndView("HomePage","id",l);
+		//		ModelAndView mo=new ModelAndView("HomePage","id",l);
+	    // form is submitted hence redirecting
+				ModelAndView mo=new ModelAndView("redirect:/Homepage");
+				
+				 
 				
                 return mo;
 			   
 			}
 			else {
 				String msg = "email and password is not matching";
-				return new ModelAndView("LoginPage", "msg", msg);
+				return new ModelAndView("index", "msg", msg);
 
 			}
 
 		} catch (Exception e) {
 			String msg = "please signup ";
-			return new ModelAndView("LoginPage", "msg", msg);
+			return new ModelAndView("index", "msg", msg);
 
 		}
 }
+	
+	@RequestMapping(value="login")
+	public ModelAndView index()
+	{
+		return new ModelAndView("index");
+	}	
+	
+	@RequestMapping(value="Homepage")
+	public ModelAndView home()
+	{
+		return new ModelAndView("HomePage");
+	}	
+	
 }
