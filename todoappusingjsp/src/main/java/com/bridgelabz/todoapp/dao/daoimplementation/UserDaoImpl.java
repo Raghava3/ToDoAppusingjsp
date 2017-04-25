@@ -1,5 +1,9 @@
 package com.bridgelabz.todoapp.dao.daoimplementation;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -57,7 +61,7 @@ public class UserDaoImpl implements UserDaoInter {
 			query.setParameter("p", password);*/
     Criteria criteria=session.createCriteria(User.class);
  
-			User user = (User) criteria.add(Restrictions.conjunction().add(Restrictions.eq("email", mail)).add(Restrictions.eq("password", password))).uniqueResult();// query.uniqueResult();
+			User user =	 (User) criteria.add(Restrictions.conjunction().add(Restrictions.eq("email", mail)).add(Restrictions.eq("password", password))).uniqueResult();// query.uniqueResult();
 			transaction.commit();
 			System.out.println("user" + user);
 			return user;
@@ -72,4 +76,7 @@ public class UserDaoImpl implements UserDaoInter {
 			}
 		}
 	}
+	
+	
+	
 }

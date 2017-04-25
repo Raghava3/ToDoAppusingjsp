@@ -1,5 +1,6 @@
 package com.bridgelabz.todoapp.dao.daoimplementation;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -19,7 +20,7 @@ import com.bridgelabz.todoapp.model.ToDoData;
  */
 public class DataDaoImpl implements DataDaoInter {
 
-	/*@Autowired
+	@Autowired
 	private SessionFactory sessionFactory;
 
 	Session session;
@@ -35,7 +36,6 @@ public class DataDaoImpl implements DataDaoInter {
 		try {
 			session.save(toDoData);
 			transaction.commit();
-			session.close();
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,17 +74,13 @@ public class DataDaoImpl implements DataDaoInter {
 		try {
 			Session session = sessionFactory.openSession();
 			Transaction transaction = session.beginTransaction();
-			session.update(toDoData);
+			session.saveOrUpdate(toDoData);
 			transaction.commit();
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
+		} 
 	}
 
 	@Override
@@ -102,11 +98,31 @@ public class DataDaoImpl implements DataDaoInter {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
+		} 
+	}
+	
+/*	@Override
+	public List<ToDoData> listOfindividualnotes(int todoid,int userid) {
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		System.out.println("coming1");
+		try {
+			String hql = "from ToDoData where USER_ID=:id and id=todoid";
+			Query query = session.createQuery(hql);
+			query.setParameter("id", userid);
+			query.setParameter("todoid", todoid);
+			List<ToDoData> listofdata = query.list();
+			transaction.commit();
+			return listofdata;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		} finally {
 			if (session != null) {
 				session.close();
 			}
 		}
 	}*/
-
+	
+	
 }

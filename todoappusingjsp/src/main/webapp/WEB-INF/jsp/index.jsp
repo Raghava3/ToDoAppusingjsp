@@ -53,7 +53,7 @@
       width: 1000px;
       height:30px;
       background-color:rgba(0,0,0,0.9);
-      margin:0 auto;
+      margin:0 auto;raghava
       margin-top: 30px;
       padding-top:10px;
       padding-left: 10px;

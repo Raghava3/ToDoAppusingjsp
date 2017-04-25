@@ -247,9 +247,9 @@ $(function() {
  <font color="red">  <i><span class="error_form" id="email_error_message"></span></i></font>
  <b>password:</b>     <input type="password"  id="form_password"  name="password" placeholder="password">
  <font color="red">  <i><span class="error_form" id="password_error_message"></span></i></font>
-                    <input type="submit" value="login"> 
+                     <input type="submit" value="login"> 
 </form>
-         <pre>                  <a href="signup">signup</a></pre>
+         <pre>                     <a href="signup">signup</a></pre>
 </div>
 <center>
 <pre>

@@ -129,7 +129,7 @@ $(function() {
       margin:0 auto;
       margin-top: 160px;
       padding-top: 25px;
-      padding-left: 10px;
+      padding-left: 5px;
       border-radius: 5px;
 
     }
@@ -137,10 +137,24 @@ $(function() {
     {
     
       width: 1000px;
-      height:30px;
+      height:65px;
       background-color:rgba(0,0,0,0.9);
       margin:0 auto;
       margin-top: 10px;
+      padding-top:10px;
+      padding-left: 10px;
+      border-radius: 10px;
+    
+    }
+    
+       .cc
+    {
+    
+      width: 1000px;
+      height:30px;
+      background-color:rgba(0,0,0,0.9);
+      margin:0 auto;
+      margin-top: 30px;
       padding-top:10px;
       padding-left: 10px;
       border-radius: 10px;
@@ -152,12 +166,12 @@ $(function() {
   <body>
   
   <div class="logo"></div>
-<div class="bb">
- <font color="white"><center>welcome to todo</center></font>
+<div class="bb"><h4><font color="white"><center>Todo</center></font></h4>
   </div> 
   <%-- <div class="bb">
  <font color="white"><center>please enter the details</center></font>
   </div>  --%>
+  <center>
  <div class="aa">
  <!-- 
 // this is for table 
@@ -199,19 +213,17 @@ $(function() {
  <font color="red">  <i><span class="error_form" id="email_error_message"></span></i></font>
  <b>password:</b>     <input type="password"  id="form_password"  name="password" placeholder="password">
  <font color="red">  <i><span class="error_form" id="password_error_message"></span></i></font>
-                    <input type="submit" value="click to signup"> 
+                <input type="submit" value="click to signup"> 
  </form>
 </pre>
 </div>
+</center>
 <pre>
 
 
 
 
-
-
-
-<div class="bb"><center><a href="http://bridgelabz.com/"><font color="red">About us</font></center></a></div>
+<div class="cc"><center><a href="http://bridgelabz.com/"><font color="red">About us</font></center></a></div>
 </pre>
 
 

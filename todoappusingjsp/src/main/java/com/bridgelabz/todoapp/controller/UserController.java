@@ -63,26 +63,15 @@ public class UserController
 		
 	HttpSession session=req.getSession();
 				
-		System.out.println(email);
-		System.out.println(password);
+		 
 		try {
 
-			Object l = userSerInter.login(email, password);
-			
-			//User u = (User) l;
-			
-			System.out.println("l="+l);
-			
-			if (l != null) {
+			User  userId = userSerInter.login(email, password);
+			if (userId != null) {
 				
-				session.setAttribute("Email", email);
-		//		ModelAndView mo=new ModelAndView("HomePage","id",l);
-	    // form is submitted hence redirecting
+				session.setAttribute("user", userId);
 				ModelAndView mo=new ModelAndView("redirect:/Homepage");
-				
-				 
-				
-                return mo;
+				 return mo;
 			   
 			}
 			else {
@@ -104,10 +93,20 @@ public class UserController
 		return new ModelAndView("index");
 	}	
 	
-	@RequestMapping(value="Homepage")
-	public ModelAndView home()
+	@RequestMapping(value="logout")
+	public ModelAndView logout(HttpServletRequest req, HttpServletResponse resp)
 	{
-		return new ModelAndView("HomePage");
+		HttpSession session=req.getSession();
+		if(session.getAttribute("user")!=null)      //checks  if session existed or not if session exist then session will be invalidated
+		{
+			session.invalidate();
+			return new ModelAndView("index");
+		}
+		else{
+			return new ModelAndView("index");
+		}
 	}	
+	
+	
 	
 }
