@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>datapage</title>
-</head>
+
 <style type="text/css">
   body{	
    background-color:#e8e8e8;
@@ -32,7 +32,7 @@
       height:65px;
       background-color: #f5b400	;
       margin:0 auto;
-      padding-top:10px;
+      padding-top:30px;
       padding-left: 10px;
     
     }
@@ -74,7 +74,17 @@
     padding-left:10px;
     border-radius:5px;
     }
+      .ee
+    {
     
+      width:40% ;
+      height:30px;
+      background-color:#fff;
+      margin:0 auto;
+  /*     padding-top:0px;
+      padding-left: 10px; */
+    	margin-left:20%;
+    }
     input[type=text]
     {
     
@@ -87,10 +97,18 @@
     border-radiux:3px;
     padding-bottom:15px;
     } 
-    
+    #innercontent{
+    	padding:1%;
+    }
 </style>
-<div class="bb">
-<font color="white"><b> <h4>Todo</h4></b></font>
+</head>
+<body>
+<div style="padding-top:16px" class="bb"> 
+<div id="innercontent">
+<b>Todo</b>
+<input class="ee" placeholder="search">
+</input>
+</div>
 </div>
   <div class="dd">
 <table> 
@@ -127,7 +145,5 @@
  </table>
 </div> 
 </c:forEach>
-
-
 </body>
 </html>

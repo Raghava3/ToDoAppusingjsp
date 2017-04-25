@@ -30,9 +30,13 @@ public class ToDoDataController {
 	{
 		HttpSession session=req.getSession();
 	    User user=(User)session.getAttribute("user");
+	    if(user!=null){
 	    List<ToDoData> dataList=dataSerInter.listOfNotes(user.getId());
 	    Iterator<ToDoData> iterator = dataList.iterator();     // iterating
 	    return new ModelAndView("dataPage","dataList",dataList);
+	    }
+	    else
+	    	return new ModelAndView("index");
 	}
 	
 	@RequestMapping(value="/addNotes",method=RequestMethod.GET)
@@ -50,10 +54,17 @@ public class ToDoDataController {
 	{
 		HttpSession session=req.getSession();
 		User user=(User)session.getAttribute("user");
+		if(user!=null)
+		{
 		dataSerInter.noteToDelete(id);
 		List<ToDoData> dataList=dataSerInter.listOfNotes(user.getId());
 	    return new ModelAndView("dataPage","dataList",dataList);
-	}
+		}
+		else
+		{
+			return new ModelAndView("index");
+		}
+		}
 
 	static int todoid=0;
 
@@ -61,16 +72,24 @@ public class ToDoDataController {
 	@RequestMapping("/update")
 	public  ModelAndView updateNote(HttpServletRequest req,HttpServletResponse resp,@RequestParam("id")int id,ToDoData toDoData)
 	{
-	//	HttpSession session=req.getSession();
-	//	User user=(User)session.getAttribute("user");
+		HttpSession session=req.getSession();
+		User user=(User)session.getAttribute("user");
 		todoid=id;
 	 //   int userid=user.getId();
 	/*	toDoData.setId(id);
 		dataSerInter.noteUpdate(toDoData);*/
 	//	 List<ToDoData> dataList=dataSerInter.listOfindividualnotes(id, userid);
 		  //  return new ModelAndView("updatepage","datalist",dataList);
+		
+		if(user!=null)
+		{
 		return new ModelAndView("updatepage");
-	}
+	   }
+		else
+		{
+			return new ModelAndView("index");
+		}
+		}
 
 	@RequestMapping("addNotes1")
 	public  ModelAndView listOfNotes(HttpServletRequest req,HttpServletResponse resp ,ToDoData tododata) 
