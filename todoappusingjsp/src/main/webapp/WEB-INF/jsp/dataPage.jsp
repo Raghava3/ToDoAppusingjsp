@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,7 +30,7 @@
     
       width: fit;
       height:65px;
-      background-color: #f5b400	;
+      background-color: #41474B  /*  #5D8BA5 */    /* #f5b400 */	;
       margin:0 auto;
       padding-top:30px;
       padding-left: 10px;
@@ -70,8 +70,8 @@
     background-color:white;
     margin:0 auto;
     margin-top:10px;
-    padding-top:10px;
-    padding-left:10px;
+    padding-top:40px;
+    padding-left:20px;
     border-radius:5px;
     }
       .ee
@@ -79,11 +79,9 @@
     
       width:40% ;
       height:30px;
-      background-color:#fff;
+      background-col/or:#fff;
       margin:0 auto;
-  /*     padding-top:0px;
-      padding-left: 10px; */
-    	margin-left:20%;
+      margin-left:20%;
     }
     input[type=text]
     {
@@ -100,12 +98,15 @@
     #innercontent{
     	padding:1%;
     }
+    #logut{
+    padding:10%;
+    }
 </style>
 </head>
 <body>
 <div style="padding-top:16px" class="bb"> 
-<div id="innercontent">
-<b>Todo</b>
+<!-- <div id="innercontent">
+ --><font color="white"><b>Todo</b></font>
 <input class="ee" placeholder="search">
 </input>
 </div>
@@ -132,13 +133,11 @@
 </table>
 </pre>
 </form>
-
-</div>
-
-     <c:forEach items="${dataList}" var="listofdata">
-     <div class="note">
-    <table>
- <tr><td>title:<c:out value="${listofdata.title}"/></td></tr>
+ </div>
+<c:forEach items="${dataList}" var="listofdata">
+<div class="note">
+<table>
+<tr><td>title:<c:out value="${listofdata.title}"/></td></tr>
 <tr><td>description: <c:out value="${listofdata.description}"/></td></tr>
 <tr><td><a href="<c:url value='deleteNote?id=${listofdata.id}'/>">delete Note</a>
 <a href="<c:url value='update?id=${listofdata.id}'/>">update Note</a></td></tr>

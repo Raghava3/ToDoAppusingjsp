@@ -101,18 +101,29 @@ public class DataDaoImpl implements DataDaoInter {
 		} 
 	}
 	
-/*	@Override
+	@Override
 	public List<ToDoData> listOfindividualnotes(int todoid,int userid) {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
-		System.out.println("coming1");
+		System.out.println("coming23");
 		try {
-			String hql = "from ToDoData where USER_ID=:id and id=todoid";
+			String hql = "from ToDoData where USER_ID=:id and DATA_ID=:todoid";
 			Query query = session.createQuery(hql);
+			System.out.println("userid"+userid);
+			System.out.println("todoid"+todoid);
 			query.setParameter("id", userid);
 			query.setParameter("todoid", todoid);
 			List<ToDoData> listofdata = query.list();
+						
 			transaction.commit();
+			Iterator<ToDoData> i=listofdata.iterator();
+			while(i.hasNext())
+			{
+				ToDoData tododata=(ToDoData)i.next();
+				System.out.println(tododata.getTitle());
+				System.out.println(tododata.getDescription());
+			}
+
 			return listofdata;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -122,7 +133,7 @@ public class DataDaoImpl implements DataDaoInter {
 				session.close();
 			}
 		}
-	}*/
+	}
 	
 	
 }

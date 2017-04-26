@@ -18,14 +18,17 @@ $(function() {
         $("#MobileNumber_error_message").hide();
         $("#email_error_message").hide();
         $("#password_error_message").hide();
-		
+        $("#reg").hide();
+        
         var error_name=false;
         var error_mobilenumber=false;
         var error_email=false;
         var error_password=false;
         
        
-        
+        $("#reg").focusout(function(){
+        	check_username();
+        })
         
 		
        $("#form_Name").focusout(function(){
@@ -45,9 +48,9 @@ $(function() {
       		check_password();
       		
       });
-       
+     
+    
       
-       
        function check_username()
        {
     	   var username_length=$("#form_Name").val().length;
@@ -62,7 +65,7 @@ $(function() {
     		   $("#Name_error_message").hide();
     		   }
        }
-        
+       
        
        function check_mobilenumber()
        {
@@ -75,7 +78,7 @@ $(function() {
     		   {
     		   $("#MobileNumber_error_message").html("it should be 10 numbers");
     		   $("#MobileNumber_error_message").show();
-    		   error_name=true;
+    		   error_mobilenumber=true;
     		  }
        } 
        
@@ -91,7 +94,7 @@ $(function() {
     		   {
     		   $("#email_error_message").html("invalid.");
     		   $("#email_error_message").show();
-    		   error_name=true;
+    		   error_email=true;
     		  }
        } 
        
@@ -106,9 +109,24 @@ $(function() {
     		   {
     		   $("#password_error_message").html("atleast 7 character");
     		   $("#password_error_message").show();
-    		   error_name=true;
+    		   error_password=true;
     		  }
        } 
+       
+       $("input").keyup(function(){
+      	 $("#reg").hide();
+
+      var a= $("#form_Name").val().length;
+      var b= $("#form_MobileNumber").val().length;
+      var c= $("#form_email").val().length;
+      var d= $("#form_password").val().length;
+      
+      if(a>=5&&b==10&&c>5&&d>=7)
+    	  {
+    	 $("#reg").show();
+    	  }
+       });
+       
        
 });
 
@@ -117,7 +135,7 @@ $(function() {
 </script>
     <style type="text/css">
   body{
-   background-image:url("images/simple.png");
+   background-color:#41474B;/* image:url("images/simple.png"); */
    background-repeat: no-repeat;
    background-size: cover;
   }
@@ -128,36 +146,33 @@ $(function() {
       background-color:white;
       margin:0 auto;
       margin-top: 160px;
-      padding-top: 25px;
+      padding-top: 10px;
       padding-left: 5px;
       border-radius: 5px;
 
     }
-    .bb
-    {
-    
-      width: 1000px;
-      height:65px;
-      background-color:rgba(0,0,0,0.9);
-      margin:0 auto;
-      margin-top: 10px;
-      padding-top:10px;
-      padding-left: 10px;
-      border-radius: 10px;
-    
-    }
+   .bb {
+	width: fit;
+	height: 65px;
+	background-color: rgba(0, 0, 0, 0.9);
+	margin-left:0px;
+	margin-top: 0px;
+	padding-top: 10px;
+	padding-left: 10px;
+	
+}
     
        .cc
     {
     
-      width: 1000px;
+      width: 	fit;
       height:30px;
       background-color:rgba(0,0,0,0.9);
       margin:0 auto;
       margin-top: 30px;
       padding-top:10px;
       padding-left: 10px;
-      border-radius: 10px;
+      border-radius: 0px;
     
     }
     </style>
@@ -165,8 +180,8 @@ $(function() {
   
   <body>
   
-  <div class="logo"></div>
-<div class="bb"><h4><font color="white"><center>Todo</center></font></h4>
+  <div class="logo"></div> 
+<div  class="bb"><h4><font color="white"><center>Todo</center></font></h4>
   </div> 
   <%-- <div class="bb">
  <font color="white"><center>please enter the details</center></font>
@@ -188,7 +203,7 @@ $(function() {
  <td><span class="error_form" id="MobileNumber_error_message"></span></td> 
  </tr>
  <tr>
- <td>email:</td>
+ <td>email:</td>form_MobileNumber
  <td> <input type="text"  class="form_text" id="form_email"  name="email" placeholder="email"></td>
  <td><span class="error_form" id="email_error_message"></span></td>
  </tr>
@@ -205,15 +220,16 @@ $(function() {
 </table> -->
 <pre>
  <form id="register" action="register" method="post">
- <b>Name:</b>         <input  type="text"  id="form_Name" class="form_class"  name="fullName" placeholder="name">
- <font color="red">  <i><span class="error_form" id="Name_error_message"></span></i></font>
-<b> ContactNumber:</b><input  type="text"   id="form_MobileNumber" class="form_class" name="mobileNumber" placeholder="contact no">
- <font color="red">  <i><span class="error_form" id="MobileNumber_error_message"></span></i></font>
+ <font color="black">  <b><span class="error_form" id="Name_error_message"></span></b></font>
+ <b>Name:</b>         <input  type="text"  id="form_Name"  class="form_class"  name="fullName" placeholder="name">
+ <font color="black">  <b><span class="error_form" id="MobileNumber_error_message"></span></b></font>
+ <b>ContactNumber:</b><input  type="text"   id="form_MobileNumber" class="form_class" name="mobileNumber" placeholder="contact no">
+ <font color="black">  <b><span class="error_form" id="email_error_message"></span></b></font>
  <b>email: </b>       <input type="text"   id="form_email"  name="email" placeholder="email">
- <font color="red">  <i><span class="error_form" id="email_error_message"></span></i></font>
- <b>password:</b>     <input type="password"  id="form_password"  name="password" placeholder="password">
- <font color="red">  <i><span class="error_form" id="password_error_message"></span></i></font>
-                <input type="submit" value="click to signup"> 
+ <font color="black">  <b><span class="error_form" id="password_error_message"></span></b></font>
+ <b>password:</b>     <input type="password"  id="form_password" name="password" placeholder="password">
+ 
+  <input type="submit" id="reg" value="click to signup"> 
  </form>
 </pre>
 </div>
@@ -222,11 +238,8 @@ $(function() {
 
 
 
-
-<div class="cc"><center><a href="http://bridgelabz.com/"><font color="red">About us</font></center></a></div>
+<div class="cc"><center><a href="http://bridgelabz.com/"><font color="white">About us</font></center></a></div>
 </pre>
-
-
 </body>
 </body>
 </html>

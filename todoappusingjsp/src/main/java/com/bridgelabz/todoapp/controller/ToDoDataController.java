@@ -24,7 +24,6 @@ public class ToDoDataController {
 	@Autowired
 	DataSerInter dataSerInter;
 	
-	
 	@RequestMapping("/Homepage")
 	public  ModelAndView listOfNotes(HttpServletRequest req,HttpServletResponse resp ) 
 	{
@@ -49,6 +48,7 @@ public class ToDoDataController {
 		return  "redirect:/Homepage";
 	}
 	
+	
 	@RequestMapping("/deleteNote")
 	public  ModelAndView deleteNote(HttpServletRequest req,HttpServletResponse resp,@RequestParam("id")int id)
 	{
@@ -66,6 +66,7 @@ public class ToDoDataController {
 		}
 		}
 
+	
 	static int todoid=0;
 
 	
@@ -75,13 +76,15 @@ public class ToDoDataController {
 		HttpSession session=req.getSession();
 		User user=(User)session.getAttribute("user");
 		todoid=id;
-	 //   int userid=user.getId();
-	/*	toDoData.setId(id);
-		dataSerInter.noteUpdate(toDoData);*/
-	//	 List<ToDoData> dataList=dataSerInter.listOfindividualnotes(id, userid);
-		  //  return new ModelAndView("updatepage","datalist",dataList);
+	   int userid=user.getId();
+		toDoData.setId(id);
+		dataSerInter.noteUpdate(toDoData);
+		 List<ToDoData> dataList=dataSerInter.listOfindividualnotes(id,userid);
+		    return new ModelAndView("updatepage","datalist",dataList);
 		
-		if(user!=null)
+	/*
+	 * previous code
+	 * 	if(user!=null)
 		{
 		return new ModelAndView("updatepage");
 	   }
@@ -89,8 +92,8 @@ public class ToDoDataController {
 		{
 			return new ModelAndView("index");
 		}
-		}
-
+		}*/
+	}
 	@RequestMapping("addNotes1")
 	public  ModelAndView listOfNotes(HttpServletRequest req,HttpServletResponse resp ,ToDoData tododata) 
 	{
@@ -98,7 +101,7 @@ public class ToDoDataController {
 		HttpSession session=req.getSession();
 	    User user=(User)session.getAttribute("user");
 	    tododata.setUser(user);
-	    System.out.println("coming inside add notes1");
+	   
 	    dataSerInter.noteUpdate(tododata);
 	    return new ModelAndView("redirect:/Homepage");
 	}

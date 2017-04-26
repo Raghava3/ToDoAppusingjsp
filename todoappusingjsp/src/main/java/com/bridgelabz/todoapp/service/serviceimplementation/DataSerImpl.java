@@ -44,10 +44,9 @@ public class DataSerImpl implements DataSerInter
 		return dataDaoInter.noteToDelete(id);
 	}
 
-	/*@Override
+	@Override
 	public List<ToDoData> listOfindividualnotes(int todoid, int userid) {
 		
 		return dataDaoInter.listOfindividualnotes(todoid, userid);
 	}
-*/
 }
