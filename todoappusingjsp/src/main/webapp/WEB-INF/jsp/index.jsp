@@ -100,7 +100,7 @@ body {
 
 .cc {
 	width: fit;
-	height: 30px;
+	height: 40px;
 	background-color: rgba(0, 0, 0, 0.9);
 	margin: 0 auto;
 	margin-top: 100px;
@@ -110,9 +110,9 @@ body {
 }
 </style>
 
-<body>
+<body style="overflow:hidden;">
 
-<div style="margin-left:-10px;margin-top:-6px">	<div class="bb">
+<div style="margin-left:-10px;margin-top:-6px;margin-right:-10px" s>	<div class="bb">
 		<font color="white"><center>
 				<b>
 					<h4>ToDo</h4>

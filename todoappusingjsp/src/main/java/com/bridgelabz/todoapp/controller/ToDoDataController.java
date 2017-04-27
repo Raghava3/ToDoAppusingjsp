@@ -1,5 +1,6 @@
 package com.bridgelabz.todoapp.controller;
 
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -31,6 +32,7 @@ public class ToDoDataController {
 	    User user=(User)session.getAttribute("user");
 	    if(user!=null){
 	    List<ToDoData> dataList=dataSerInter.listOfNotes(user.getId());
+	    Collections.reverse(dataList);
 	    Iterator<ToDoData> iterator = dataList.iterator();     // iterating
 	    return new ModelAndView("dataPage","dataList",dataList);
 	    }

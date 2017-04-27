@@ -166,7 +166,7 @@ $(function() {
     {
     
       width: 	fit;
-      height:30px;
+      height:40px;
       background-color:rgba(0,0,0,0.9);
       margin:0 auto;
       margin-top: 30px;
@@ -178,8 +178,8 @@ $(function() {
     </style>
   </head>
   
-  <body>
-  
+  <body style="overflow:hidden;">
+  <div style="margin-top:-10px;margin-left:-10px;margin-right:-10px">
   <div class="logo"></div> 
 <div  class="bb"><h4><font color="white"><center>Todo</center></font></h4>
   </div> 
@@ -188,6 +188,7 @@ $(function() {
   </div>  --%>
   <center>
  <div class="aa">
+ 
  <!-- 
 // this is for table 
  <table   cellspacing="5px" >
@@ -220,13 +221,13 @@ $(function() {
 </table> -->
 <pre>
  <form id="register" action="register" method="post">
- <font color="black">  <b><span class="error_form" id="Name_error_message"></span></b></font>
+ <font color="red">  <b><span class="error_form" id="Name_error_message"></span></b></font>
  <b>Name:</b>         <input  type="text"  id="form_Name"  class="form_class"  name="fullName" placeholder="name">
- <font color="black">  <b><span class="error_form" id="MobileNumber_error_message"></span></b></font>
+ <font color="red">  <b><span class="error_form" id="MobileNumber_error_message"></span></b></font>
  <b>ContactNumber:</b><input  type="text"   id="form_MobileNumber" class="form_class" name="mobileNumber" placeholder="contact no">
- <font color="black">  <b><span class="error_form" id="email_error_message"></span></b></font>
+ <font color="red">  <b><span class="error_form" id="email_error_message"></span></b></font>
  <b>email: </b>       <input type="text"   id="form_email"  name="email" placeholder="email">
- <font color="black">  <b><span class="error_form" id="password_error_message"></span></b></font>
+ <font color="red">  <b><span class="error_form" id="password_error_message"></span></b></font>
  <b>password:</b>     <input type="password"  id="form_password" name="password" placeholder="password">
  
   <input type="submit" id="reg" value="click to signup"> 
@@ -235,6 +236,9 @@ $(function() {
 </div>
 </center>
 <pre>
+
+
+
 
 
 
