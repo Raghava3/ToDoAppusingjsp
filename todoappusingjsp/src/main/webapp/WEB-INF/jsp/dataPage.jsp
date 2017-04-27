@@ -79,7 +79,7 @@
     
       width:40% ;
       height:30px;
-      background-col/or:#fff;
+      background-color:#fff;
       margin:0 auto;
       margin-left:15%;
     }
@@ -112,7 +112,7 @@
     left: 0;
     background-color:#41474B /* #111 */;
     overflow-x: hidden;
-        margin-top: 75px;
+       margin-top: 75px; 
     
     transition: 0.5s;
     padding-top: 60px;
@@ -155,20 +155,19 @@
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0)";
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
-    document.body.style.backgroundColor = "white";
 }
 </script>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
- <font color="white"> <a href="logout">Logout</a></font>	
+  <a href="logout">Logout</a>	
 </div>
-<div style="margin-top:-12px;margin-left:-10px;margin-right:-10px">
+
+<div style="margin-top:-10px;margin-left:-10px;margin-right:-10px">
  <div style="padding-top:14px" class="bb"> 
 <div id="innercontent">
  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -182,6 +181,7 @@ function closeNav() {
 
 </div>
 </div>
+<div id="main">
   <div class="dd">
 <table> 
 <form action="addNotes" method="get" style="padding:30px">
@@ -214,6 +214,7 @@ function closeNav() {
 <a href="<c:url value='update?id=${listofdata.id}'/>">update Note</a></td></tr>
  </table>
 </div> 
+</div>
 </c:forEach>
 </body>
 </html>
