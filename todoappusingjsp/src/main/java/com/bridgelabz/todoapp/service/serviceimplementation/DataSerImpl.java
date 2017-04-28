@@ -49,4 +49,9 @@ public class DataSerImpl implements DataSerInter
 		
 		return dataDaoInter.listOfindividualnotes(todoid, userid);
 	}
+
+	@Override
+	public ToDoData individualNotesToPop(int userid, int todoid) {
+		return dataDaoInter.individualNotesToPop(todoid, userid);
+	}
 }

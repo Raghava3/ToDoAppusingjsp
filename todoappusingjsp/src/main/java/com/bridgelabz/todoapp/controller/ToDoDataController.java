@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -107,4 +108,29 @@ public class ToDoDataController {
 	    dataSerInter.noteUpdate(tododata);
 	    return new ModelAndView("redirect:/Homepage");
 	}
+	
+	@RequestMapping("/individualNote")
+	public  ModelAndView individualNotesToPop(HttpServletRequest req,HttpServletResponse resp,@RequestParam("id")int todoid ) 
+	{
+		HttpSession session=req.getSession();
+	    User user=(User)session.getAttribute("user");
+	    if(user!=null){
+	    	int userid=user.getId();
+	    ToDoData dataList1=dataSerInter.individualNotesToPop(userid, todoid);
+	 //   Collections.reverse(dataList1);
+	//    Iterator<ToDoData> iterator = dataList1.iterator(); // iterating
+	    System.out.println(dataList1);
+	    
+	    if(dataList1!=null)
+	    {
+	    	System.out.println("loop");
+	    //	ToDoData tododata=(ToDoData)iterator.next();
+	    	System.out.println(dataList1.getTitle());
+	    }
+	    return new ModelAndView("dataPage","dataList1",dataList1);
+	    }
+	    else
+	    	return new ModelAndView("index");
+	}
+	
 }

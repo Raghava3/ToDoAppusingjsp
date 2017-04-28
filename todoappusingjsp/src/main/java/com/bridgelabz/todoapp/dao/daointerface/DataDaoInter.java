@@ -32,4 +32,5 @@ public interface DataDaoInter {
 	 */
 	public boolean noteToDelete(int id);
 	public List<ToDoData> listOfindividualnotes(int todoid,int userid);
+	public ToDoData individualNotesToPop(int userid,int todoid);
 }

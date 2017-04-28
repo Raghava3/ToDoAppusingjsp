@@ -123,8 +123,33 @@ public class DataDaoImpl implements DataDaoInter {
 				System.out.println(tododata.getTitle());
 				System.out.println(tododata.getDescription());
 			}
-
 			return listofdata;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	
+	
+	
+	@Override
+	public ToDoData individualNotesToPop(int userid,int todoid) {
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		System.out.println("userid"+userid);
+        System.out.println("todoid"+todoid);
+		try {
+			String hql = "from ToDoData where USER_ID=:todoid and DATA_ID=:userid";
+			Query query = session.createQuery(hql);
+			query.setParameter("userid", userid);
+			query.setParameter("todoid", todoid);
+			ToDoData tododata = (ToDoData)query.uniqueResult();
+			transaction.commit();
+			return tododata;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
