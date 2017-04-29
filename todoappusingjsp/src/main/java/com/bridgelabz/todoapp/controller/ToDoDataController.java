@@ -42,13 +42,19 @@ public class ToDoDataController {
 	}
 	
 	@RequestMapping(value="/addNotes",method=RequestMethod.GET)
-	public String addNote(ToDoData  todoData,HttpServletRequest req,HttpServletResponse resp)
+	public ModelAndView addNote(ToDoData  todoData,HttpServletRequest req,HttpServletResponse resp)
 	{
 		HttpSession session=req.getSession();
-		User user=(User)session.getAttribute("user");
+		User user = (User)session.getAttribute("user");
 		todoData.setUser(user);
+	    if(user!=null){
 		dataSerInter.addNote(todoData);
-		return  "redirect:/Homepage";
+		return new ModelAndView( "redirect:/Homepage");
+	    }
+	    else
+	    {
+	    	return new ModelAndView("index");
+	    }
 	}
 	
 	
@@ -60,8 +66,7 @@ public class ToDoDataController {
 		if(user!=null)
 		{
 		dataSerInter.noteToDelete(id);
-		List<ToDoData> dataList=dataSerInter.listOfNotes(user.getId());
-	    return new ModelAndView("dataPage","dataList",dataList);
+		return new ModelAndView("redirect:/Homepage");
 		}
 		else
 		{
@@ -78,26 +83,20 @@ public class ToDoDataController {
 	{
 		HttpSession session=req.getSession();
 		User user=(User)session.getAttribute("user");
-		todoid=id;
-	   int userid=user.getId();
-		toDoData.setId(id);
-		dataSerInter.noteUpdate(toDoData);
-		 List<ToDoData> dataList=dataSerInter.listOfindividualnotes(id,userid);
-		    return new ModelAndView("updatepage","datalist",dataList);
-		
-	/*
-	 * previous code
-	 * 	if(user!=null)
+		if(user!=null)
 		{
-		return new ModelAndView("updatepage");
-	   }
-		else
-		{
-			return new ModelAndView("index");
+		 todoid=id;
+	     int userid=user.getId();
+		 toDoData.setId(id);
+		 dataSerInter.noteUpdate(toDoData);
+	     return new ModelAndView("redirect:/Homepage");
 		}
-		}*/
+	else
+	{
+		return new ModelAndView("index");
 	}
-	@RequestMapping("addNotes1")
+	}
+/*	@RequestMapping("addNotes1")
 	public  ModelAndView listOfNotes(HttpServletRequest req,HttpServletResponse resp ,ToDoData tododata) 
 	{
 		tododata.setId(todoid);
@@ -107,30 +106,5 @@ public class ToDoDataController {
 	   
 	    dataSerInter.noteUpdate(tododata);
 	    return new ModelAndView("redirect:/Homepage");
-	}
-	
-	@RequestMapping("/individualNote")
-	public  ModelAndView individualNotesToPop(HttpServletRequest req,HttpServletResponse resp,@RequestParam("id")int todoid ) 
-	{
-		HttpSession session=req.getSession();
-	    User user=(User)session.getAttribute("user");
-	    if(user!=null){
-	    	int userid=user.getId();
-	    ToDoData dataList1=dataSerInter.individualNotesToPop(userid, todoid);
-	 //   Collections.reverse(dataList1);
-	//    Iterator<ToDoData> iterator = dataList1.iterator(); // iterating
-	    System.out.println(dataList1);
-	    
-	    if(dataList1!=null)
-	    {
-	    	System.out.println("loop");
-	    //	ToDoData tododata=(ToDoData)iterator.next();
-	    	System.out.println(dataList1.getTitle());
-	    }
-	    return new ModelAndView("dataPage","dataList1",dataList1);
-	    }
-	    else
-	    	return new ModelAndView("index");
-	}
-	
+	}*/
 }

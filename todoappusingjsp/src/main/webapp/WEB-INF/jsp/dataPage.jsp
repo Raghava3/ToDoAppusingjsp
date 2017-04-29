@@ -204,7 +204,7 @@ input[type=text] {
 		</div>
 		<c:forEach items="${dataList}" var="listofdata">
 				<div class="note">
-					<a href="<c:url value='individualNote?id=${listofdata.id}'/>">
+				
 					<table>
 						<tr>
 							<td>title:<c:out value="${listofdata.title}" /></td>

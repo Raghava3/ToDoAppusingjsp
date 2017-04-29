@@ -44,7 +44,7 @@ public class DataSerImpl implements DataSerInter
 		return dataDaoInter.noteToDelete(id);
 	}
 
-	@Override
+/*	@Override
 	public List<ToDoData> listOfindividualnotes(int todoid, int userid) {
 		
 		return dataDaoInter.listOfindividualnotes(todoid, userid);
@@ -53,5 +53,5 @@ public class DataSerImpl implements DataSerInter
 	@Override
 	public ToDoData individualNotesToPop(int userid, int todoid) {
 		return dataDaoInter.individualNotesToPop(todoid, userid);
-	}
+	}*/
 }

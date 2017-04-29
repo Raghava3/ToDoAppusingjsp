@@ -100,6 +100,7 @@ public class UserController
 		if(session.getAttribute("user")!=null)      //checks  if session existed or not if session exist then session will be invalidated
 		{
 			session.invalidate();
+			req.getSession();
 			return new ModelAndView("index");
 		}
 		else{

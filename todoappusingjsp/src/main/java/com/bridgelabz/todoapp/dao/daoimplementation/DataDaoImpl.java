@@ -101,7 +101,7 @@ public class DataDaoImpl implements DataDaoInter {
 		} 
 	}
 	
-	@Override
+	/*@Override
 	public List<ToDoData> listOfindividualnotes(int todoid,int userid) {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
@@ -158,7 +158,7 @@ public class DataDaoImpl implements DataDaoInter {
 				session.close();
 			}
 		}
-	}
+	}*/
 	
 	
 }
