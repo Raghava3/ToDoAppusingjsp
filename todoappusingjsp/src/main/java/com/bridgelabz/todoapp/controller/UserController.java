@@ -17,112 +17,93 @@ import com.bridgelabz.todoapp.service.serviceinterface.UserSerInter;
 import com.bridgelabz.todoapp.validator.RegValidation;
 
 @Controller
-public class UserController 
-{
+public class UserController {
 	@Autowired
 	RegValidation regValidation;
-	
+
 	@Autowired
 	UserSerInter userSerInter;
-	
-	
-	@RequestMapping(value="/")
-	public ModelAndView indexPage(HttpServletRequest req,HttpServletResponse resp)
-	{
 
-		HttpSession session=req.getSession(false);
-	    User user=(User)session.getAttribute("user");
-	    if(user!=null)
-	    {
-		return new ModelAndView("redirect:/Homepage");
-	    }
-	    else
-	    {
+	// first request comes here and checks if any user persent or not
+	@RequestMapping(value = "/")
+	public ModelAndView indexPage(HttpServletRequest req, HttpServletResponse resp) {
+		HttpSession session = req.getSession();
+		User user = (User) session.getAttribute("user");
+		if (user != null) {
+			return new ModelAndView("redirect:/Homepage");
+		} else {
 			return new ModelAndView("loginPage");
-	    }
+		}
 	}
-	
-	@RequestMapping(value="signup")
-	public ModelAndView displayRegispge()
-	{
+
+	@RequestMapping(value = "signup")
+	public ModelAndView displayRegispge() {
 		return new ModelAndView("RegistrationPage");
 	}
-	
-	
-	
-	@RequestMapping(value="register",method=RequestMethod.POST)
-	public ModelAndView registrationMethod( User user, BindingResult bindingResult )
-	{
-		                            //doing sessin invalidate otherwise it will add . ask sir 
-		regValidation.validate(user, bindingResult);       //calling validate method 
-		if(bindingResult.hasErrors()){
-			
+
+	@RequestMapping(value = "register", method = RequestMethod.POST)
+	public ModelAndView registrationMethod(User user, BindingResult bindingResult) {
+		// doing sessin invalidate otherwise it will add . ask sir
+		regValidation.validate(user, bindingResult); // calling validate method
+		if (bindingResult.hasErrors()) {
+
 			return new ModelAndView("RegistrationPage");
-		}
-		else{
-		 boolean  result=userSerInter.registration(user); //calling registration method
-		
-		 if(result){
-			 return new ModelAndView("redirect:/login");
-		 }
-		 else {
-			 String msg="failed..! please fill again";
-			 return new ModelAndView("RegistrationPage","msg",msg);
-		 }
+		} else {
+			boolean result = userSerInter.registration(user); // calling
+																// registration
+																// method
+
+			if (result) {
+				return new ModelAndView("redirect:/login");
+			} else {
+				String msg = "failed..! please fill again";
+				return new ModelAndView("RegistrationPage", "msg", msg);
+			}
 		}
 	}
-	
-	
-	@RequestMapping(value="/Home", method=RequestMethod.POST)
-	public ModelAndView loginvalidation(@RequestParam("email") String email,
-			@RequestParam("password") String password, HttpServletRequest req, HttpServletResponse resp) 
-	{
-		
-	HttpSession session=req.getSession();
-				
-		 
+
+	@RequestMapping(value = "/Home", method = RequestMethod.POST)
+	public ModelAndView loginvalidation(@RequestParam("email") String email, @RequestParam("password") String password,
+			HttpServletRequest req, HttpServletResponse resp) {
+
+		HttpSession session = req.getSession();
+
 		try {
-              
-			User  userId = userSerInter.login(email, password);
+			User userId = userSerInter.login(email, password);
 			if (userId != null) {
-				
 				session.setAttribute("user", userId);
-				ModelAndView mo=new ModelAndView("redirect:/Homepage");
-				 return mo;
-			   
-			}
-			else {
+				ModelAndView mo = new ModelAndView("redirect:/Homepage");
+				return mo;
+			} else {
 				String msg = "email and password is not matching";
 				return new ModelAndView("loginPage", "msg", msg);
-
 			}
 
 		} catch (Exception e) {
 			String msg = "please signup ";
 			return new ModelAndView("loginPage", "msg", msg);
-
 		}
-}
-	
-	@RequestMapping(value="login")
-	public ModelAndView index()
-	{
+	}
+
+	@RequestMapping(value = "login")
+	public ModelAndView index() {
 		return new ModelAndView("loginPage");
-	}	
-	
-	@RequestMapping(value="logout")
-	public ModelAndView logout(HttpServletRequest req, HttpServletResponse resp)
-	{
-		HttpSession session=req.getSession();
-		if(session.getAttribute("user")!=null)      //checks  if session existed or not if session exist then session will be invalidated
+	}
+
+	@RequestMapping(value = "logout")
+	public ModelAndView logout(HttpServletRequest req, HttpServletResponse resp) {
+		HttpSession session = req.getSession();
+		if (session.getAttribute("user") != null) // checks if session existed
+													// or not if session exist
+													// then session will be
+													// invalidated
 		{
 			session.invalidate();
 			req.getSession();
 			return new ModelAndView("loginPage");
-		}
-		else{
+		} else {
 			return new ModelAndView("loginPage");
 		}
-	}	
-	
+	}
+
 }

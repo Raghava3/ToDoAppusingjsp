@@ -44,7 +44,7 @@ public class RegValidation  implements Validator
 			
 			if(!matcher.matches())
 			{
-				System.out.println("coming123");
+				System.out.println("name pro");
 				errors.rejectValue("fullName","name is required","enter the full name");
 			}
 		}
@@ -57,6 +57,7 @@ public class RegValidation  implements Validator
 			
 			if(!matcher.matches())
 			{
+				System.out.println("email pro");
 				errors.rejectValue("email","email is required","enter the email");
 			}
 		}
@@ -69,6 +70,7 @@ public class RegValidation  implements Validator
 			
 			if(!matcher.matches())
 			{
+				System.out.println(" pro in mobile");
 				errors.rejectValue("mobileNumber","mobile number is required","enter the mobileNumber");
 			}
 		}
@@ -80,7 +82,7 @@ public class RegValidation  implements Validator
 			matcher=pattern.matcher(user.getPassword());
 			
 			if(!matcher.matches())
-			{
+			{System.out.println("pass  pro");
 				errors.rejectValue("password","password  is required","enter the password");
 			}
 		}

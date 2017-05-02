@@ -39,6 +39,17 @@ body {
 	height: 200px;
 	background-color: white;
 	margin: 0 auto;
+	margin-top: 00px;
+	padding-top: 0px;
+	padding-left: 10px;
+	border-radius: 5px;
+}
+
+.ff {
+	width: 400px;
+	height: 50px;
+	background-color: white;
+	margin: 0 auto;
 	margin-top: 30px;
 	padding-top: 0px;
 	padding-left: 10px;
@@ -158,6 +169,10 @@ input[type=text] {
 			document.getElementById("mySidenav").style.width = "0";
 			document.getElementById("main").style.marginLeft = "0";
 		}
+		function openEntry()
+		{
+			document.getElementById("newNote").style.display="block";
+		}
 	</script>
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -177,10 +192,20 @@ input[type=text] {
 
 		</div>
 	</div>
-	<div id="main">
-		<div class="dd">
+	
+	
+	
+	 
+		 <div id="take" class="entry" onclick="openEntry()">
+		 <div class="ff">
+         <span style="cursor:poniter; margin-left: 20px;">note..</span> 
+        </div> 
+   
+     
+      <div id="newNote" class="dd" style="display:none;">
 			<table>
-				<form action="addNotes" method="get" style="padding: 30px">
+			
+				<form action="addNotes" method="get" style="padding: 00px">
 					<tr>
 						<td><input type="text" name="title" placeholder="title"
 							size="100" outline="none">
@@ -198,9 +223,15 @@ input[type=text] {
     
     </td>
     </tr>
+    
 </table>
+
+</div>
+
+
 </pre>
 			</form>
+		</div>
 		</div>
 		<c:forEach items="${dataList}" var="listofdata">
 				<div class="note">
