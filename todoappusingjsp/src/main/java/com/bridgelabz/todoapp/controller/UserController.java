@@ -25,6 +25,23 @@ public class UserController
 	@Autowired
 	UserSerInter userSerInter;
 	
+	
+	@RequestMapping(value="/")
+	public ModelAndView indexPage(HttpServletRequest req,HttpServletResponse resp)
+	{
+
+		HttpSession session=req.getSession(false);
+	    User user=(User)session.getAttribute("user");
+	    if(user!=null)
+	    {
+		return new ModelAndView("redirect:/Homepage");
+	    }
+	    else
+	    {
+			return new ModelAndView("loginPage");
+	    }
+	}
+	
 	@RequestMapping(value="signup")
 	public ModelAndView displayRegispge()
 	{
@@ -76,13 +93,13 @@ public class UserController
 			}
 			else {
 				String msg = "email and password is not matching";
-				return new ModelAndView("index", "msg", msg);
+				return new ModelAndView("loginPage", "msg", msg);
 
 			}
 
 		} catch (Exception e) {
 			String msg = "please signup ";
-			return new ModelAndView("index", "msg", msg);
+			return new ModelAndView("loginPage", "msg", msg);
 
 		}
 }
@@ -90,7 +107,7 @@ public class UserController
 	@RequestMapping(value="login")
 	public ModelAndView index()
 	{
-		return new ModelAndView("index");
+		return new ModelAndView("loginPage");
 	}	
 	
 	@RequestMapping(value="logout")
@@ -101,10 +118,10 @@ public class UserController
 		{
 			session.invalidate();
 			req.getSession();
-			return new ModelAndView("index");
+			return new ModelAndView("loginPage");
 		}
 		else{
-			return new ModelAndView("index");
+			return new ModelAndView("loginPage");
 		}
 	}	
 	

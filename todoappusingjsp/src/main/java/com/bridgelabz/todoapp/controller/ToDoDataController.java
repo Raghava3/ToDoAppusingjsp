@@ -53,7 +53,7 @@ public class ToDoDataController {
 	    }
 	    else
 	    {
-	    	return new ModelAndView("index");
+	    	return new ModelAndView("loginPage");
 	    }
 	}
 	
@@ -70,7 +70,7 @@ public class ToDoDataController {
 		}
 		else
 		{
-			return new ModelAndView("index");
+			return new ModelAndView("loginPage");
 		}
 		}
 
@@ -93,7 +93,7 @@ public class ToDoDataController {
 		}
 	else
 	{
-		return new ModelAndView("index");
+		return new ModelAndView("loginPage");
 	}
 	}
 /*	@RequestMapping("addNotes1")
