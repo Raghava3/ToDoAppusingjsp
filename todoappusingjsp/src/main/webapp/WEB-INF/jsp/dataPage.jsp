@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>datapage</title>
@@ -35,25 +36,25 @@ body {
 }
 
 .dd {
-	width: 400px;
-	height: 200px;
+	width: 650px;
+	height: 170px;
 	background-color: white;
 	margin: 0 auto;
 	margin-top: 00px;
 	padding-top: 0px;
 	padding-left: 10px;
-	border-radius: 5px;
+	border-radius: 0px;
 }
 
 .ff {
-	width: 400px;
+	width: 650px;
 	height: 50px;
 	background-color: white;
 	margin: 0 auto;
 	margin-top: 30px;
 	padding-top: 0px;
 	padding-left: 10px;
-	border-radius: 5px;
+	border-radius: 0px;
 }
 
 .cc {
@@ -69,13 +70,23 @@ body {
 
 .note {
 	width: 350px;
-	height: 200px;
+	height: 30px;
 	background-color: white;
 	margin: 0 auto;
 	margin-top: 10px;
 	padding-top: 40px;
-	padding-left: 20px;
-	border-radius: 5px;
+	padding-left: 40px;
+	border-radius: 0px;
+}
+.note1 {
+	width: 350px;
+	height: 30px;
+	background-color: white;
+	margin: 0 auto;
+	margin-top: 0px;
+	padding-top: 40px;
+	padding-left: 40px;
+	border-radius: 0x;
 }
 
 .ee {
@@ -156,6 +167,13 @@ input[type=text] {
 }
 
 
+
+
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -173,11 +191,22 @@ input[type=text] {
 		{
 			document.getElementById("newNote").style.display="block";
 		}
+		
+		function popUp(title,description)
+		{
+			alert(title+"\n"+description) 
+		}
+		
+		function myFunction() {
+		    var popup = document.getElementById("myPopup");
+		    popup.classList.toggle("show");
+		}
 	</script>
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<a href="logout">Logout</a>
 	</div>
+
 
 	<div style="margin-top: -10px; margin-left: -10px; margin-right: -10px">
 		<div style="padding-top: 14px" class="bb">
@@ -185,58 +214,64 @@ input[type=text] {
 				<span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span>
 				&nbsp;&nbsp;&nbsp;<font color="white"><b>TodoNotes</b></font> <input
 					class="ee" placeholder="search"> </input>
-				<!-- <div id="logoutcontent">
-<a href="logout">logout</a>
-</div> -->
+			
 			</div>
-
 		</div>
 	</div>
-	
-	
-	
-	 
-		 <div id="take" class="entry" onclick="openEntry()">
-		 <div class="ff">
-         <span style="cursor:poniter; margin-left: 20px;">note..</span> 
-        </div> 
-   
-     
-      <div id="newNote" class="dd" style="display:none;">
-			<table>
-			
-				<form action="addNotes" method="get" style="padding: 00px">
-					<tr>
-						<td><input type="text" name="title" placeholder="title"
-							size="100" outline="none">
-					</tr>
-					<tr>
-						<td><input type="text" name="description"
-							placeholder="description" size="100" outline="none"></td>
-						</td>
-			</table>
-			<pre>
-<table>
+
+
+
+	<div id="main">
+		<div class="ff" class="entry" onclick="openEntry()">
+			<span style="cursor: poniter; margin-left: 20px;">take a
+				note...</span>
+		</div>
+			<div id="newNote" class="dd" style="display: none;">
+				<table>
+
+					<form action="addNotes" method="get" style="padding: 00px">
+						<tr>
+							<td><input type="text" name="title" placeholder="title"
+								size="100" outline="none">
+						</tr>
+						<tr>
+							<td><input type="text" name="description"
+								placeholder="description" size="100" outline="none"></td>
+							</td>
+				</table>
+				<pre><table>
 <tr>              
-    <td>                                                              <center>  	<input type="submit" value="DONE">
-							</center>
+    <td>                                                              	<input
+									                  	type="submit" value="DONE">
     
     </td>
     </tr>
     
 </table>
 
-</div>
+
+			</div>
 
 
-</pre>
+			</pre>
 			</form>
-		</div>
-		</div>
+		
+
+ 
 		<c:forEach items="${dataList}" var="listofdata">
-				<div class="note">
-				
-					<table>
+ 	
+ 	<div id="main">
+				<div class="note" onclick="popUp('${listofdata.title}','${listofdata.description}')" style="word-wrap:break-word;">
+				<span style="margin-left:30px;">${listofdata.title}</span></br>
+				<span style="margin-left:30px;">${listofdata.description}</span>
+				</div>
+				  
+				<div class="note1">
+			    <a href="<c:url value='deleteNote?id=${listofdata.id}'/>">deleteNote</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	            <a href="<c:url value='update?id=${listofdata.id}'/>">updateNote</a></pre>
+				</div>
+<%-- <table>
 						<tr>
 							<td>title:<c:out value="${listofdata.title}" /></td>
 						</tr>
@@ -244,14 +279,17 @@ input[type=text] {
 							<td>description: <c:out value="${listofdata.description}" /></td>
 						</tr>
 						<tr>
-							<td>
-							<a href="<c:url value='deleteNote?id=${listofdata.id}'/>">deleteNote</a> 
-							<a href="<c:url value='update?id=${listofdata.id}'/>">updateNote</a></td>
+							<td><a
+								href="<c:url value='deleteNote?id=${listofdata.id}'/>">deleteNote</a>
+								<a href="<c:url value='update?id=${listofdata.id}'/>">updateNote</a></td>
 						</tr>
-					</table>
-				</div> 
+					</table> --%>
+				</div>
 		</c:forEach>
-		</a> 
-    </div>
+					
+		
+		</a>
+	</div>
+	</div>
 </body>
 </html>
