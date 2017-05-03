@@ -27,36 +27,14 @@ body {
 }
 
 .bb {
-	width: fit;
+	width: 100%;
 	height: 65px;
 	background-color: #41474B /*  #5D8BA5 */ /* #f5b400 */;
 	margin: 0 auto;
 	padding-top: 30px;
 	padding-left: 10px;
+	position:fixed;
 }
-
-.dd {
-	width: 650px;
-	height: 170px;
-	background-color: white;
-	margin: 0 auto;
-	margin-top: 00px;
-	padding-top: 0px;
-	padding-left: 10px;
-	border-radius: 0px;
-}
-
-.ff {
-	width: 650px;
-	height: 50px;
-	background-color: white;
-	margin: 0 auto;
-	margin-top: 30px;
-	padding-top: 0px;
-	padding-left: 10px;
-	border-radius: 0px;
-}
-
 .cc {
 	width: 1000px;
 	height: 30px;
@@ -66,7 +44,53 @@ body {
 	padding-top: 10px;
 	padding-left: 10px;
 	border-radius: 5px;
+	
 }
+
+.dd {
+	width: 650px;
+	height: 170px;
+	background-color: white;
+	margin: 0 auto;
+	margin-top: 27px;
+	padding-top: 0px;
+	padding-left: 5px;
+	border-radius: 0px;
+}
+
+.ee {
+	width: 40%;
+	height: 30px;
+	background-color: #fff;
+	margin: 0 auto;
+	margin-left: 15%;
+}
+
+.ff {
+	width: 650px;
+	height: 50px;
+	background-color: white;
+	margin: 0 auto;
+	margin-top: 90px;
+	padding-top: 0px;
+	padding-left: 15px;
+	border-radius: 0px;
+	
+	position:fixed;
+	margin-left:310px;
+}
+.gg {
+	width: 650px;
+	height: 50px;
+	background-color: white;
+	margin: 0 auto;
+	margin-top: 300px;
+	padding-top: 0px;
+	padding-left: 10px;
+	border-radius: 0px;
+	
+}
+
 
 .note {
 	width: 350px;
@@ -88,14 +112,10 @@ body {
 	padding-left: 40px;
 	border-radius: 0x;
 }
-
-.ee {
-	width: 40%;
-	height: 30px;
-	background-color: #fff;
-	margin: 0 auto;
-	margin-left: 15%;
+.note2{
+	margin-top: 190px;
 }
+
 
 input[type=text] {
 	width: 60%;
@@ -208,7 +228,7 @@ input[type=text] {
 	</div>
 
 
-	<div style="margin-top: -10px; margin-left: -10px; margin-right: -10px">
+	<div style="margin-top: -10px; margin-left: -10px; margin-right: -10px;">
 		<div style="padding-top: 14px" class="bb">
 			<div id="innercontent">
 				<span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span>
@@ -223,9 +243,9 @@ input[type=text] {
 
 	<div id="main">
 		<div class="ff" class="entry" onclick="openEntry()">
-			<span style="cursor: poniter; margin-left: 20px;">take a
+			<span style="cursor: poniter; margin-left: 17px;">take a
 				note...</span>
-		</div>
+		
 			<div id="newNote" class="dd" style="display: none;">
 				<table>
 
@@ -248,19 +268,20 @@ input[type=text] {
     </tr>
     
 </table>
-
-
-			</div>
+</div>
+</div>
+			
 
 
 			</pre>
 			</form>
 		
 
- 
+ 	<div id="main">
+ 	<div class="note2">
 		<c:forEach items="${dataList}" var="listofdata">
  	
- 	<div id="main">
+ 
 				<div class="note" onclick="popUp('${listofdata.title}','${listofdata.description}')" style="word-wrap:break-word;">
 				<span style="margin-left:30px;">${listofdata.title}</span></br>
 				<span style="margin-left:30px;">${listofdata.description}</span>
@@ -270,7 +291,7 @@ input[type=text] {
 			    <a href="<c:url value='deleteNote?id=${listofdata.id}'/>">deleteNote</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	            <a href="<c:url value='update?id=${listofdata.id}'/>">updateNote</a></pre>
-				</div>
+				
 <%-- <table>
 						<tr>
 							<td>title:<c:out value="${listofdata.title}" /></td>
@@ -285,8 +306,9 @@ input[type=text] {
 						</tr>
 					</table> --%>
 				</div>
+				</div>
 		</c:forEach>
-					
+			</div>		
 		
 		</a>
 	</div>
