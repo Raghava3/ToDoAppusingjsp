@@ -6,6 +6,11 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
 <title>datapage</title>
 
 <style type="text/css">
@@ -28,13 +33,14 @@ body {
 
 .bb {
 	width: 100%;
-	height: 65px;
+	height: 79px;
 	background-color: #41474B /*  #5D8BA5 */ /* #f5b400 */;
 	margin: 0 auto;
 	padding-top: 30px;
 	padding-left: 10px;
-	position:fixed;
+	position: fixed;
 }
+
 .cc {
 	width: 1000px;
 	height: 30px;
@@ -44,18 +50,18 @@ body {
 	padding-top: 10px;
 	padding-left: 10px;
 	border-radius: 5px;
-	
 }
 
 .dd {
-	width: 650px;
-	height: 170px;
+	width: 651px;
+	height: 162px;
 	background-color: white;
 	margin: 0 auto;
-	margin-top: 27px;
+	margin-top: 30px;
 	padding-top: 0px;
 	padding-left: 5px;
 	border-radius: 0px;
+	margin-left: -15px;
 }
 
 .ee {
@@ -71,14 +77,14 @@ body {
 	height: 50px;
 	background-color: white;
 	margin: 0 auto;
-	margin-top: 90px;
+	margin-top: 15px;
 	padding-top: 0px;
 	padding-left: 15px;
 	border-radius: 0px;
-	
-	position:fixed;
-	margin-left:310px;
+	position: fixed;
+	margin-left: 310px;
 }
+
 .gg {
 	width: 650px;
 	height: 50px;
@@ -88,34 +94,44 @@ body {
 	padding-top: 0px;
 	padding-left: 10px;
 	border-radius: 0px;
-	
 }
-
-
+.hh {
+	width: 100%;
+	height: 65px;
+	background-color: #e8e8e8 /*  #5D8BA5 */ /* #f5b400 */;
+	margin: 0 auto;
+	padding-top: 0px;
+	padding-left: 10px;
+	position: fixed;
+	    margin-top: 63px;
+	        height: 208px;
+}
 .note {
-	width: 350px;
-	height: 30px;
+	width: 381px;
+	min-height: 50px;
 	background-color: white;
 	margin: 0 auto;
 	margin-top: 10px;
+	padding-right:15px;
 	padding-top: 40px;
-	padding-left: 40px;
+	padding-left: 10px;
 	border-radius: 0px;
 }
+
 .note1 {
-	width: 350px;
-	height: 30px;
+	    width: 382px;
+	height: 70px;
 	background-color: white;
 	margin: 0 auto;
-	margin-top: 0px;
+	margin-top: -17px;
 	padding-top: 40px;
 	padding-left: 40px;
 	border-radius: 0x;
 }
-.note2{
-	margin-top: 190px;
-}
 
+.note2 {
+	margin-top: 305px;
+}
 
 input[type=text] {
 	width: 60%;
@@ -146,7 +162,7 @@ input[type=text] {
 	left: 0;
 	background-color: #41474B /* #111 */;
 	overflow-x: hidden;
-	margin-top: 75px;
+	margin-top: 68px;
 	transition: 0.5s;
 	padding-top: 60px;
 }
@@ -175,7 +191,7 @@ input[type=text] {
 #main {
 	transition: margin-left .5s;
 	padding: 16px;
-}
+} 
 
 @media screen and (max-height: 450px) {
 	.sidenav {
@@ -185,19 +201,11 @@ input[type=text] {
 		font-size: 18px;
 	}
 }
-
-
-
-
-
-
-
-
-
 </style>
 </head>
 <body>
 	<script>
+		
 		function openNav() {
 			document.getElementById("mySidenav").style.width = "250px";
 			document.getElementById("main").style.marginLeft = "250px";
@@ -207,21 +215,20 @@ input[type=text] {
 			document.getElementById("mySidenav").style.width = "0";
 			document.getElementById("main").style.marginLeft = "0";
 		}
-		function openEntry()
-		{
-			document.getElementById("newNote").style.display="block";
+		function openEntry() {
+			document.getElementById("newNote").style.display = "block";
 		}
-		
-		function popUp(title,description)
-		{
-			alert(title+"\n"+description) 
+
+		function popUp(title, description) {
+			alert(title + "\n" + description)
 		}
-		
+
 		function myFunction() {
-		    var popup = document.getElementById("myPopup");
-		    popup.classList.toggle("show");
+			var popup = document.getElementById("myPopup");
+			popup.classList.toggle("show");
 		}
 	</script>
+	
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<a href="logout">Logout</a>
@@ -233,85 +240,60 @@ input[type=text] {
 			<div id="innercontent">
 				<span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span>
 				&nbsp;&nbsp;&nbsp;<font color="white"><b>TodoNotes</b></font> <input
-					class="ee" placeholder="search"> </input>
-			
+					class="ee" placeholder="search"> </input> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="Homepage"><i class="fa fa-refresh" style="font-size:35px;color:#e8e8e8"></i></a>
+
 			</div>
 		</div>
 	</div>
 
 
 
-	<div id="main">
+		<div id="main"> 
+		<div class="hh">
 		<div class="ff" class="entry" onclick="openEntry()">
-			<span style="cursor: poniter; margin-left: 17px;">take a
-				note...</span>
-		
+			<span style="cursor: poniter; margin-left: 17px;">make a note...</span>
 			<div id="newNote" class="dd" style="display: none;">
-				<table>
-
 					<form action="addNotes" method="get" style="padding: 00px">
-						<tr>
-							<td><input type="text" name="title" placeholder="title"
-								size="100" outline="none">
+						<table>
+			          	<tr>
+							<td><input type="text" name="title" placeholder="title" size="100" outline="none"></td>
 						</tr>
 						<tr>
-							<td><input type="text" name="description"
-								placeholder="description" size="100" outline="none"></td>
-							</td>
-				</table>
-				<pre><table>
-<tr>              
-    <td>                                                              	<input
-									                  	type="submit" value="DONE">
-    
-    </td>
-    </tr>
-    
-</table>
+							<td><input type="text" name="description" placeholder="description" size="100" outline="none"></td>
+                        </tr>				
+				        </table>
+                   	<table>
+                      <tr>              
+                         <td><input type="submit" value="DONE"></td>
+                      </tr>
+                    </table>
+                 </form>
+			</div>
+		</div>
 </div>
-</div>
-			
-
-
-			</pre>
-			</form>
-		
-
- 	<div id="main">
- 	<div class="note2">
-		<c:forEach items="${dataList}" var="listofdata">
- 	
+   
  
-				<div class="note" onclick="popUp('${listofdata.title}','${listofdata.description}')" style="word-wrap:break-word;">
-				<span style="margin-left:30px;">${listofdata.title}</span></br>
-				<span style="margin-left:30px;">${listofdata.description}</span>
-				</div>
-				  
-				<div class="note1">
-			    <a href="<c:url value='deleteNote?id=${listofdata.id}'/>">deleteNote</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	            <a href="<c:url value='update?id=${listofdata.id}'/>">updateNote</a></pre>
-				
-<%-- <table>
-						<tr>
-							<td>title:<c:out value="${listofdata.title}" /></td>
-						</tr>
-						<tr>
-							<td>description: <c:out value="${listofdata.description}" /></td>
-						</tr>
-						<tr>
-							<td><a
-								href="<c:url value='deleteNote?id=${listofdata.id}'/>">deleteNote</a>
-								<a href="<c:url value='update?id=${listofdata.id}'/>">updateNote</a></td>
-						</tr>
-					</table> --%>
-				</div>
-				</div>
-		</c:forEach>
-			</div>		
-		
+		</form>
+			<div class="note2">
+				<c:forEach items="${dataList}" var="listofdata">
+					<div class="note"
+						onclick="popUp('${listofdata.title}','${listofdata.description}')"
+						style="word-wrap: break-word;">
+						<span style="margin-left: 30px;">${listofdata.title}</span></br> <span
+							style="margin-left: 30px;">${listofdata.description}</span>
+					</div>
+
+					<div class="note1">
+						<a href="<c:url value='update?id=${listofdata.id}'/>">	<i class="fa fa-edit" style="font-size:28px;color:#41474B"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="<c:url value='deleteNote?id=${listofdata.id}'/>"><i class="fa fa-trash" style="font-size:28px;color:#41474B"></i></a>
+					</div>
+			
+			</c:forEach>
+		 </div>
 		</a>
-	</div>
-	</div>
+		</div>
 </body>
 </html>

@@ -49,8 +49,7 @@ $(function() {
       		
       });
      
-    
-      
+     
        function check_username()
        {
     	   var username_length=$("#form_Name").val().length;
