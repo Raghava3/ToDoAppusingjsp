@@ -1,60 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-    
-
 <!DOCTYPE html>
 <html>
 <head>
     
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <style type="text/css">
-  body{
-   background-color:#41474B;/* image:url("images/simple.png"); */
-   background-repeat: no-repeat;
-   background-size: cover;
-  }
-    .aa
-    {
-      width: 400px;
-      height:230px;
-      background-color:white;
-      margin:0 auto;
-      margin-top: 160px;
-      padding-top: 10px;
-      padding-left: 5px;
-      border-radius: 5px;
-
-    }
-   .bb {
-	width: fit;
-	height: 65px;
-	background-color: rgba(0, 0, 0, 0.9);
-	margin-left:0px;
-	margin-top: 0px;
-	padding-top: 10px;
-	padding-left: 10px;
-	
-}
-    
-       .cc
-    {
-    
-      width: 	fit;
-      height:40px;
-      background-color:rgba(0,0,0,0.9);
-      margin:0 auto;
-      margin-top: 30px;
-      padding-top:10px;
-      padding-left: 10px;
-      border-radius: 0px;
-    
-    }
-    </style>
-    <script src="js/registration.js" type="text/javascript" ></script>
+   
+   
+    <link rel="stylesheet" href="css/Registrationpage.css">
+    <script src="js/registration.js" type="text/javascript"></script>
   </head>
   
   <body style="overflow:hidden;">
@@ -78,7 +34,7 @@
  <font color="red">  <b><span class="error_form" id="password_error_message"></span></b></font>
  <b>password:</b>     <input type="password"  id="form_password" name="password" placeholder="password">
  
-  <input type="submit" id="reg" value="click to signup"> 
+ <input type="submit" id="reg" value="click to signup"> 
  </form>
 </pre>
 </div>
