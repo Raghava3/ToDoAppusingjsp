@@ -10,128 +10,7 @@
     
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-<script type="text/javascript">
 
-$(function() {
-		$("#Name_error_message").hide();
-        $("#MobileNumber_error_message").hide();
-        $("#email_error_message").hide();
-        $("#password_error_message").hide();
-        $("#reg").hide();
-        
-        var error_name=false;
-        var error_mobilenumber=false;
-        var error_email=false;
-        var error_password=false;
-        
-       
-        $("#reg").focusout(function(){
-        	check_username();
-        })
-        
-		
-       $("#form_Name").focusout(function(){
-       	check_username();
-       		
-       });
-      $("#form_MobileNumber").focusout(function(){
-       	check_mobilenumber();
-       		
-       });
-      $("#form_email").focusout(function(){
-      		check_email();
-      		
-      });
-      
-      $("#form_password").focusout(function(){
-      		check_password();
-      		
-      });
-     
-     
-       function check_username()
-       {
-    	   var username_length=$("#form_Name").val().length;
-    	   if(username_length<5||username_length>20)
-    		   {
-    		   $("#Name_error_message").html("atleast 5 character	");
-    		   $("#Name_error_message").show();
-    		   error_name=true;
-    		   }
-    	   else
-    		   {
-    		   $("#Name_error_message").hide();
-    		   }
-       }
-       
-       
-       function check_mobilenumber()
-       {
-    	   var Mobile_pattern=new RegExp(/^([0-9]{10})$/);
-    	   if(Mobile_pattern.test($("#form_MobileNumber").val()))
-    		   {
-    		   $("#MobileNumber_error_message").hide();
-    		   }
-    	   else
-    		   {
-    		   $("#MobileNumber_error_message").html("it should be 10 numbers");
-    		   $("#MobileNumber_error_message").show();
-    		   error_mobilenumber=true;
-    		  }
-       } 
-       
-       
-       function check_email()
-       {
-    	   var email_pattern=new RegExp(/^[+a-zA-Z0-9._-]+@[+a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/i);
-    	   if(email_pattern.test($("#form_email").val()))
-    		   {
-    		   $("#email_error_message").hide();
-    		   }
-    	   else
-    		   {
-    		   $("#email_error_message").html("invalid.");
-    		   $("#email_error_message").show();
-    		   error_email=true;
-    		  }
-       } 
-       
-       function check_password()
-       {
-    	   var password_pattern=new RegExp(/^[a-zA-Z0-9]{7}/);
-    	   if(password_pattern.test($("#form_password").val()))
-    		   {
-    		   $("#password_error_message").hide();
-    		   }
-    	   else
-    		   {
-    		   $("#password_error_message").html("atleast 7 character");
-    		   $("#password_error_message").show();
-    		   error_password=true;
-    		  }
-       } 
-       
-       $("input").keyup(function(){
-      	 $("#reg").hide();
-
-      var a= $("#form_Name").val().length;
-      var b= $("#form_MobileNumber").val().length;
-      var c= $("#form_email").val().length;
-      var d= $("#form_password").val().length;
-      
-      if(a>=5&&b==10&&c>5&&d>=7)
-    	  {
-    	 $("#reg").show();
-    	  }
-       });
-       
-       
-});
-
-
-
-</script>
     <style type="text/css">
   body{
    background-color:#41474B;/* image:url("images/simple.png"); */
@@ -175,6 +54,7 @@ $(function() {
     
     }
     </style>
+    <script src="js/registration.js" type="text/javascript" ></script>
   </head>
   
   <body style="overflow:hidden;">
@@ -187,37 +67,6 @@ $(function() {
   </div>  --%>
   <center>
  <div class="aa">
- 
- <!-- 
-// this is for table 
- <table   cellspacing="5px" >
- <form id="registration" action="register" method="post">
- <tr>
- <td>Name:</td>
- <td><input  type="text" class="form_text" id="form_Name"  name="fullName" placeholder="name"></td>
- <td><span class="error_form" id="Name_error_message"></span></td>
- </tr>
- <tr>
- <td>ContactNumber:</td>
- <td><input  type="text"   class="form_text" id="form_MobileNumber"  name="mobileNumber" placeholder="contact no"></td>
- <td><span class="error_form" id="MobileNumber_error_message"></span></td> 
- </tr>
- <tr>
- <td>email:</td>form_MobileNumber
- <td> <input type="text"  class="form_text" id="form_email"  name="email" placeholder="email"></td>
- <td><span class="error_form" id="email_error_message"></span></td>
- </tr>
- <tr>
- <td>password:</td>/i>
- <td>   <input type="password" class="form_text" id="form_password"  name="password" placeholder="password"></td>
- <td><span class="error_form" id="password_error_message"></span>
- </td>
- </tr>
-  <td> <input type="submit" value="click to signup"> 
-     </td>
-     
- </form>
-</table> -->
 <pre>
  <form id="register" action="register" method="post">
  <font color="red">  <b><span class="error_form" id="Name_error_message"></span></b></font>

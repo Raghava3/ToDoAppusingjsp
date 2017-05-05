@@ -6,6 +6,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp/WEB-INF/jsp"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp/images"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp/js"/>
         <property name="context-root" value="todoappusingjsp"/>
         <property name="java-output-path" value="/todoappusingjsp/target/classes"/>
     </wb-module>

@@ -28,8 +28,7 @@ public class ToDoDataController {
 	
 	@RequestMapping("/Homepage")
 	public  ModelAndView listOfNotes(HttpServletRequest req,HttpServletResponse resp ) 
-	{
-		HttpSession session=req.getSession();
+	{		HttpSession session=req.getSession();
 	    User user=(User)session.getAttribute("user");
 	    if(user!=null){
 	    List<ToDoData> dataList=dataSerInter.listOfNotes(user.getId());
