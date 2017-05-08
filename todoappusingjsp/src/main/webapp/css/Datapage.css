@@ -18,12 +18,12 @@
 .bb {
 	width: 100%;
 	height: 79px;
-	background-color: #41474B /*  #5D8BA5 */ /* #f5b400 */;
+	background-color:#f5b400/*  #41474B */ /*  #5D8BA5 */ /* #f5b400 */;
 	margin: 0 auto;
 	padding-top: 30px;
 	padding-left: 10px;
 	position: fixed;
-}
+}	
 
 .cc {
 	width: 1000px;
@@ -81,7 +81,7 @@
 .hh {
 	width: 100%;
 	height: 65px;
-	background-color: #e8e8e8 /*  #5D8BA5 */ /* #f5b400 */;
+	background-color:  #e8e8e8  /*  #5D8BA5 */ /* #f5b400 */;
 	margin: 0 auto;
 	padding-top: 0px;
 	padding-left: 10px;
@@ -91,7 +91,7 @@
 }
 
 .listcontent {
-	width: 520px;
+	width: 390px;
 	min-height: 50px;
 	background-color: white;
 	margin: 0 auto;
@@ -99,11 +99,11 @@
 	padding-right: 15px;
 	padding-top: 10px;
 	padding-left: 10px;
-	border-radius: 0px;
-}
+	
+} 
 
 .delandup {
-	width:  520px;
+	width:  390px;
 	height: 70px;
 	background-color: white;
 	margin: 0 auto;
@@ -111,6 +111,7 @@
 	padding-top: 40px;
 	padding-left: 40px;
 	border-radius: 0x;
+	margin-bottom:20px;
 }
 
 .list1 {
@@ -144,7 +145,7 @@ input[type=text] {
 	z-index: 1;
 	top: 0;
 	left: 0;
-	background-color: #41474B /* #111 */;
+	background-color: CD8300 /* #111 */;
 	overflow-x: hidden;
 	margin-top: 68px;
 	transition: 0.5s;
@@ -189,24 +190,58 @@ input[type=text] {
 
 #input {
 	margin-top: 100px;
+	border:none;
 }
 
 
 
-#container .list order
+ #container .list order
 {
-width: 100%;
-border-bottom: 1px dotted #CCC;
-background-color: #e8e8e8;
-}
+ width: 100%;
+
+background-color: #e8e8e8;  
+} 
 
 #container .grid order
 {
-float:left;
+ /*  float:left;
 width:40%;
-height:50px;
-margin-left:30px;
-margin-bottom:80px;
+ height:50px;
+margin-left:100px;
+margin-bottom:80px;    */
+float: left; 
+width: 28%;
+  height: 50px;    
+ padding: 20px;
+ margin-left:22px;
+  margin-bottom:75px;
+  	margin-right:22px;
+  
+}
+
+#notes
+{
+	
+
+	margin-top:20px;
+	margin-bottom:20px;
+	min-height:50px; 
+}
+#listicon
+{
+	display:none;
+}
+.abc
+{
+	width:250px;
+	min-height:150px;
+	background-color: #204a87;
+	padding-left: 10px;
+	padding-top: 30px;
+	padding-right:30px;
+	margin-left: 500px;
+	margin-top:150px;
+	
 }
 
 	
